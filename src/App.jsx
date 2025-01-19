@@ -1,35 +1,86 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { addBtnStyle, addTodoContainersStyle, inputstyle } from './styles.js';
+
+import Header from './Header';
+import Todo from './Todo.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [data, setData] = useState([]);
+    const [showData, setShowData] = useState(data);
+    const [newTodo, setNewTodo] = useState('');
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    // add new todo
+    function addTodo() {
+        if (newTodo.trim().length) {
+            const id = Math.floor(Math.random() * 999999);
+            const todo = { id, isDone: false, title: newTodo.trim() };
+            const updatedData = [...data, todo];
+
+            setData(updatedData);
+            setShowData(updatedData);
+            setNewTodo('');
+        }
+    }
+
+    // delete todo
+    function deleteHandler(id) {
+        const updatedData = data.filter((item) => item.id !== id);
+        setData(updatedData);
+        setShowData(updatedData);
+    }
+
+    // do aand undo a todo
+    function changeStatusHandler(id) {
+        const updatedData = data.map((item) =>
+            item.id === id ? { ...item, isDone: !item.isDone } : item,
+        );
+
+        setData(updatedData);
+        setShowData(updatedData);
+    }
+
+    return (
+        <>
+            <Header />
+
+            {/* add new todo */}
+            <div style={addTodoContainersStyle}>
+                <input
+                    value={newTodo}
+                    onChange={(e) => setNewTodo(e.target.value)}
+                    type="text"
+                    style={inputstyle}
+                    placeholder="Todo title ..."
+                />
+                <button style={addBtnStyle} onClick={addTodo}>
+                    +
+                </button>
+            </div>
+
+            {/* show todos in page */}
+            {showData.length ? (
+                showData.map((item) => (
+                    <Todo
+                        key={item.id}
+                        status={item.isDone}
+                        title={item.title}
+                        deleteTodo={() => deleteHandler(item.id)}
+                        changeStatus={() => changeStatusHandler(item.id)}
+                    />
+                ))
+            ) : (
+                <p
+                    style={{
+                        textAlign: 'center',
+                        opacity: '0.5',
+                        marginTop: '3em',
+                    }}
+                >
+                    no todo
+                </p>
+            )}
+        </>
+    );
 }
 
-export default App
+export default App;
