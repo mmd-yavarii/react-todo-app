@@ -31,9 +31,10 @@ function App() {
 
     // do aand undo a todo
     function changeStatusHandler(id) {
-        const updatedData = data.map((item) =>
+        let updatedData = data.map((item) =>
             item.id === id ? { ...item, isDone: !item.isDone } : item,
         );
+        updatedData = updatedData.sort((a, b) => a.isDone - b.isDone);
 
         setData(updatedData);
         setShowData(updatedData);
