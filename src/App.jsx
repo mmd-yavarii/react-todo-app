@@ -9,9 +9,7 @@ import TodoCard from './components/TodoCard/TodoCard.jsx';
 
 function App() {
     // todos container
-    const [allTodos, setAllTodos] = useState([
-        // { id: 0, task: 'this is selected', status: 'done' },
-    ]);
+    const [allTodos, setAllTodos] = useState([]);
     const [display, setDisplay] = useState(allTodos);
     useEffect(() => {
         setDisplay(allTodos);
@@ -28,6 +26,11 @@ function App() {
             content: <InputPage setAllTodos={setAllTodos} />,
             show: true,
         });
+    };
+
+    // clear all todos
+    const clearHandler = () => {
+        setAllTodos([]);
     };
 
     return (
@@ -54,11 +57,16 @@ function App() {
                 <>
                     <div className={styles.messageAndClear}>
                         <h4>Task</h4>
-                        <button>clear</button>
+                        <button onClick={clearHandler}>clear</button>
                     </div>
 
                     {display.map((item) => (
-                        <TodoCard key={item.id} info={item} />
+                        <TodoCard
+                            key={item.id}
+                            info={item}
+                            setAllTodos={setAllTodos}
+                            allTodos={allTodos}
+                        />
                     ))}
                 </>
             ) : (
