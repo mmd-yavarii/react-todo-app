@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import styles from './Header.module.css';
-import FilerPage from './FilterPage';
+import FilerPage from '../FilterPage/FilterPage.jsx';
 
 const getCurrentGreeting = () => {
     const hours = new Date().getHours();

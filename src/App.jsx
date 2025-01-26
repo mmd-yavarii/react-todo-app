@@ -1,24 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import styles from './App.module.css';
-import Header from './components/Header';
-import DrawerPage from './components/DrawerPage';
-import InputPage from './components/InputPage';
-import EmptyPage from './components/EmptyPage';
+import Header from './components/Header/Header.jsx';
+import DrawerPage from './components/DrawerPage/DrawerPage.jsx';
+import InputPage from './components/InputPage/InputPage.jsx';
+import EmptyPage from './components/EmptyPage/EmptyPage.jsx';
+import TodoCard from './components/TodoCard/TodoCard.jsx';
 
 function App() {
-    const [allTodos, setAllTodos] = useState([
-        // { id: 0, task: 'hello this is a task', status: 'pending' },
-    ]);
+    // todos container
+    const [allTodos, setAllTodos] = useState([]);
     const [display, setDisplay] = useState(allTodos);
+    useEffect(() => {
+        setDisplay(allTodos);
+    }, [allTodos]);
 
     const [drawerPage, setDrawerPage] = useState({
         show: false,
         content: <p>empty</p>,
     });
 
+    // open add new todo (inputs) page
     const openAddNetodoPage = () => {
-        setDrawerPage({ content: <InputPage />, show: true });
+        setDrawerPage({
+            content: <InputPage setAllTodos={setAllTodos} />,
+            show: true,
+        });
     };
 
     return (
@@ -42,7 +49,7 @@ function App() {
 
             {/* show empty ppage or todos */}
             {display.length ? (
-                display.map((item) => <h1 key={item.id}>{item.task}</h1>)
+                display.map((item) => <TodoCard key={item.id} />)
             ) : (
                 <EmptyPage />
             )}
