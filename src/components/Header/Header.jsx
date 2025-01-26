@@ -21,13 +21,13 @@ const Header = ({ setDrawerPage, drawerPage }) => {
 
     return (
         <header className={styles.container}>
-            <div className={styles.headerContent}>
+            <div className={styles.head}>
                 <h2>{message}</h2>
 
                 <button
                     aria-label="Filter"
                     onClick={openFilterPage}
-                    className="drawer-toggle"
+                    className={`drawer-toggle ${styles.filterBtn}`}
                 >
                     <img
                         width="15"
