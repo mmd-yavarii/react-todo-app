@@ -8,6 +8,11 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.container:last-child {
+    margin-bottom: 10em;
+}
+
 .container > *:nth-child(1) {
     animation: children-slide-left 0.5s cubic-bezier(0, 1.26, 1, 0.99) forwards;
     animation-delay: 0.03s;

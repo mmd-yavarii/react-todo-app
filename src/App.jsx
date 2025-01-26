@@ -52,7 +52,11 @@ function App() {
             {/* show empty ppage or todos */}
             {display.length ? (
                 <>
-                    <h4 className={styles.tasksMessage}>Task</h4>
+                    <div className={styles.messageAndClear}>
+                        <h4>Task</h4>
+                        <button>clear</button>
+                    </div>
+
                     {display.map((item) => (
                         <TodoCard key={item.id} info={item} />
                     ))}
