@@ -7,11 +7,17 @@
     bottom: 1em;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 0 100px 900px #46464631;
+    box-shadow: 0 0 100px 300px #4646461e;
     padding: 0.5em;
     z-index: 2;
     animation: slide-up 0.2s ease-out forwards;
     display: none;
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 @keyframes slide-up {

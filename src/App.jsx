@@ -4,8 +4,14 @@ import styles from './App.module.css';
 import Header from './components/Header';
 import DrawerPage from './components/DrawerPage';
 import InputPage from './components/InputPage';
+import EmptyPage from './components/EmptyPage';
 
 function App() {
+    const [allTodos, setAllTodos] = useState([
+        // { id: 0, task: 'hello this is a task', status: 'pending' },
+    ]);
+    const [display, setDisplay] = useState(allTodos);
+
     const [drawerPage, setDrawerPage] = useState({
         show: false,
         content: <p>empty</p>,
@@ -33,6 +39,13 @@ function App() {
             >
                 +
             </div>
+
+            {/* show empty ppage or todos */}
+            {display.length ? (
+                display.map((item) => <h1 key={item.id}>{item.task}</h1>)
+            ) : (
+                <EmptyPage />
+            )}
         </>
     );
 }
