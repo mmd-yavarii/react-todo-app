@@ -1,5 +1,7 @@
 import { useState } from 'react';
+
 import styles from './Header.module.css';
+import FilerPage from './FilterPage';
 
 const getCurrentGreeting = () => {
     const hours = new Date().getHours();
@@ -10,15 +12,23 @@ const getCurrentGreeting = () => {
         : 'Good Night';
 };
 
-const Header = () => {
+const Header = ({ setDrawerPage, drawerPage }) => {
     const [message] = useState(getCurrentGreeting);
+
+    const openFilterPage = () => {
+        setDrawerPage({ content: <FilerPage />, show: true });
+    };
 
     return (
         <header className={styles.container}>
             <div className={styles.headerContent}>
                 <h2>{message}</h2>
 
-                <button aria-label="Filter">
+                <button
+                    aria-label="Filter"
+                    onClick={openFilterPage}
+                    className="drawer-toggle"
+                >
                     <img
                         width="15"
                         height="15"

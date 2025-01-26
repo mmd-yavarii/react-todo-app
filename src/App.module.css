@@ -1,0 +1,14 @@
+.addBtn {
+    width: 1.5em;
+    height: 1.5em;
+    background-color: var(--them-color);
+    text-align: center;
+    line-height: 1.4em;
+    font-size: 2rem;
+    border-radius: 50%;
+    color: #fff;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    z-index: -1;
+}

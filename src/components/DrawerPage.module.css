@@ -1,0 +1,30 @@
+.drawerPage {
+    width: 90%;
+    background-color: var(--background-colro);
+    border-radius: 15px;
+    margin: auto;
+    position: fixed;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 100px 900px #46464631;
+    padding: 0.5em;
+    z-index: 2;
+    animation: slide-up 0.2s ease-out forwards;
+    display: none;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateX(-50%) translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+.show {
+    display: inline-block;
+}

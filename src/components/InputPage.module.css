@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    flex-direction: column;
+    background-color: var(--background-colro);
+    z-index: 1;
+    padding: 1em;
+}
+
+.container input {
+    padding: 1em;
+    border-radius: 10px;
+}
+
+.container button {
+    background-color: var(--them-color);
+    color: #fff;
+    padding: 1em;
+    border-radius: 10px;
+}

@@ -1,0 +1,25 @@
+.conttainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    flex-direction: column;
+    background-color: var(--background-colro);
+    z-index: 1;
+    padding: 1em;
+}
+.conttainer button {
+    padding: 1em;
+    border-radius: 10px;
+    margin-right: 1em;
+}
+.selected {
+    background-color: var(--them-color);
+    color: #fff;
+}
+
+.conttainer p {
+    margin-bottom: 1em;
+    margin-top: 2em;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
