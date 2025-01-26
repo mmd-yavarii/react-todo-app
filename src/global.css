@@ -3,9 +3,9 @@
     line-height: 1.5;
     font-weight: 400;
 
-    --text-color: #333333;
+    --text-color: #4a4a4a;
     --background-colro: #fafafa;
-    --them-color: dodgerblue;
+    --them-color: #00b3ff;
 }
 
 * {
@@ -25,8 +25,15 @@ body {
 
 button,
 input {
-    background-color: #f5f5f4;
+    background-color: #f3f3f2;
     border: 1px solid #ececec;
+}
+input:focus {
+    border-color: var(--them-color);
+    color: var(--them-color);
+}
+input:focus::placeholder {
+    color: var(--them-color);
 }
 
 @media (min-width: 700px) {

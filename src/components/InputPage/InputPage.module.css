@@ -10,6 +10,7 @@
 .container input {
     padding: 1em;
     border-radius: 10px;
+    margin-top: 1em;
 }
 
 .container button {

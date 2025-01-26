@@ -9,7 +9,9 @@ import TodoCard from './components/TodoCard/TodoCard.jsx';
 
 function App() {
     // todos container
-    const [allTodos, setAllTodos] = useState([]);
+    const [allTodos, setAllTodos] = useState([
+        // { id: 0, task: 'this is selected', status: 'done' },
+    ]);
     const [display, setDisplay] = useState(allTodos);
     useEffect(() => {
         setDisplay(allTodos);
@@ -49,7 +51,12 @@ function App() {
 
             {/* show empty ppage or todos */}
             {display.length ? (
-                display.map((item) => <TodoCard key={item.id} />)
+                <>
+                    <h4 className={styles.tasksMessage}>Task</h4>
+                    {display.map((item) => (
+                        <TodoCard key={item.id} info={item} />
+                    ))}
+                </>
             ) : (
                 <EmptyPage />
             )}

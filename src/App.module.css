@@ -12,3 +12,7 @@
     right: 1em;
     z-index: -1;
 }
+
+.tasksMessage {
+    padding: 0.7em 1em;
+}

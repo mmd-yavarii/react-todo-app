@@ -1,0 +1,75 @@
+.container {
+    padding: 1.5em 1em;
+    border-bottom: 1px solid #cccccc74;
+    margin: 10px;
+    overflow: hidden;
+    animation: slide-left 0.9s cubic-bezier(0, 1.26, 1, 0.99) forwards;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container > *:nth-child(1) {
+    animation: children-slide-left 0.5s cubic-bezier(0, 1.26, 1, 0.99) forwards;
+    animation-delay: 0.03s;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.chekbox {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 10px;
+    background-color: #cccccc2b;
+    border: 1px solid #cccccc52;
+}
+.selected {
+    border: 2px solid var(--background-colro);
+    outline: 2px solid var(--them-color);
+    background-color: var(--them-color);
+    transform: scale(0.9);
+}
+.selectedText {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.btnContainer {
+    display: flex;
+    gap: 0.7em;
+}
+.btnContainer button {
+    background-color: transparent;
+    width: 2em;
+    height: 2em;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnContainer img {
+    opacity: 0.8;
+}
+
+@keyframes children-slide-left {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
