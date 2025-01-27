@@ -24,7 +24,7 @@ const TodoCard = ({ info, setAllTodos, allTodos }) => {
         <div className={styles.container}>
             <div>
                 <div
-                    className={`${styles.chekbox} ${
+                    className={`${styles.chekbox} pointer ${
                         info.status == 'done' && styles.selected
                     }`}
                     onClick={checkHandler}

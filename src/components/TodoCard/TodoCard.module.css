@@ -1,7 +1,10 @@
 .container {
     padding: 1.5em 1em;
-    border-bottom: 1px solid #cccccc74;
+    /* border: 1px solid #cccccc74; */
+    box-shadow: 1px 1px 6px #4c4c4c2f;
+    border-radius: 15px;
     margin: 10px;
+    margin-bottom: 1em;
     overflow: hidden;
     animation: slide-left 0.9s cubic-bezier(0, 1.26, 1, 0.99) forwards;
     display: flex;
@@ -37,7 +40,7 @@
 }
 .selectedText {
     opacity: 0.5;
-    text-decoration: line-through;
+    text-decoration: line-through var(--them-color) 2.4px;
 }
 
 .btnContainer {

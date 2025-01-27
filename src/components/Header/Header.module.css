@@ -24,6 +24,10 @@
     justify-content: space-between;
     gap: 1em;
 }
+.head div {
+    display: flex;
+    gap: 0.5em;
+}
 
 .container button {
     padding: 0.5em;

@@ -46,7 +46,7 @@ function App() {
 
             {/* add btn */}
             <div
-                className={`drawer-toggle ${styles.addBtn}`}
+                className={`drawer-toggle pointer ${styles.addBtn}`}
                 onClick={openAddNetodoPage}
             >
                 +

@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import styles from './Header.module.css';
 import FilerPage from '../FilterPage/FilterPage.jsx';
+import SelectThem from '../SelectThem/SelectThem.jsx';
 
 const getCurrentGreeting = () => {
     const hours = new Date().getHours();
@@ -19,23 +20,43 @@ const Header = ({ setDrawerPage, drawerPage }) => {
         setDrawerPage({ content: <FilerPage />, show: true });
     };
 
+    const openSetting = () => {
+        setDrawerPage({ content: <SelectThem />, show: true });
+        SelectThem;
+    };
+
     return (
         <header className={styles.container}>
             <div className={styles.head}>
                 <h2>{message}</h2>
 
-                <button
-                    aria-label="Filter"
-                    onClick={openFilterPage}
-                    className={`drawer-toggle ${styles.filterBtn}`}
-                >
-                    <img
-                        width="15"
-                        height="15"
-                        src="https://img.icons8.com/ios/50/filter--v1.png"
-                        alt="Filter Icon"
-                    />
-                </button>
+                <div>
+                    <button
+                        aria-label="Filter"
+                        onClick={openFilterPage}
+                        className={`drawer-toggle ${styles.filterBtn}`}
+                    >
+                        <img
+                            width="15"
+                            height="15"
+                            src="https://img.icons8.com/ios/50/filter--v1.png"
+                            alt="Filter Icon"
+                        />
+                    </button>
+
+                    <button
+                        aria-label="Filter"
+                        onClick={openSetting}
+                        className={`drawer-toggle ${styles.filterBtn}`}
+                    >
+                        <img
+                            width="15"
+                            height="15"
+                            src="https://img.icons8.com/ios/50/paint.png"
+                            alt="paint"
+                        />
+                    </button>
+                </div>
             </div>
 
             <input
