@@ -1,5 +1,23 @@
 import styles from './SelectThem.module.css';
 
+const colors = [
+    '#0000FF',
+    '#3333FF',
+    '#6666FF',
+    '#9999FF',
+    '#CCCCFF', // Vibrant Blue
+    '#8000FF',
+    '#9933FF',
+    '#B266FF',
+    '#CC99FF',
+    '#E5CCFF', // Vibrant Purple
+    '#FF0090',
+    '#FF33A1',
+    '#FF66B3',
+    '#FF99C4',
+    '#FFC6E0', // Vibrant Pink
+];
+
 const SelectThem = () => {
     const changeThem = (color) => {
         document.documentElement.style.cssText = `--them-color: ${color}`;
@@ -8,31 +26,20 @@ const SelectThem = () => {
     return (
         <>
             <h4 className={styles.message}>select them</h4>
+
             <div className={styles.container}>
-                <div
-                    className={`${styles.items} ${styles.blue}`}
-                    onClick={() => changeThem('#00b3ff')}
-                ></div>
-
-                <div
-                    className={`${styles.items} ${styles.pink}`}
-                    onClick={() => changeThem('#ff0084')}
-                ></div>
-
-                <div
-                    className={`${styles.items} ${styles.orange}`}
-                    onClick={() => changeThem('#ff9d00')}
-                ></div>
-
-                <div
-                    className={`${styles.items} ${styles.purple}`}
-                    onClick={() => changeThem('#9000ff')}
-                ></div>
-
-                <div
-                    className={`${styles.items} ${styles.green}`}
-                    onClick={() => changeThem('#0cd112')}
-                ></div>
+                {colors.map((item, index) => (
+                    <div
+                        key={index}
+                        className={styles.items}
+                        style={{
+                            backgroundColor: item,
+                            outlineColor: item,
+                            boxShadow: `0px 0px 35px 0px ${item}`,
+                        }}
+                        onClick={() => changeThem(item)}
+                    ></div>
+                ))}
             </div>
         </>
     );
