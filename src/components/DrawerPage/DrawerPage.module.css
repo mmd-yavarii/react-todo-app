@@ -1,5 +1,6 @@
 .drawerPage {
     width: 90%;
+    max-width: 500px;
     background-color: var(--background-colro);
     border-radius: 15px;
     margin: auto;

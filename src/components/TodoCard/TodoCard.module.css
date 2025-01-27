@@ -11,6 +11,9 @@
     align-items: center;
     justify-content: space-between;
 }
+.container p {
+    font-weight: 700;
+}
 
 .container:last-child {
     margin-bottom: 10em;
@@ -31,6 +34,7 @@
     border-radius: 10px;
     background-color: #cccccc2b;
     border: 1px solid #cccccc52;
+    outline: 1px solid var(--them-color);
 }
 .selected {
     border: 2px solid var(--background-colro);

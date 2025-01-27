@@ -35,7 +35,12 @@ function App() {
 
     return (
         <>
-            <Header setDrawerPage={setDrawerPage} drawerPage={drawerPage} />
+            <Header
+                setDrawerPage={setDrawerPage}
+                setDisplay={setDisplay}
+                display={display}
+                allTodos={allTodos}
+            />
 
             {/* drawer page */}
             <DrawerPage

@@ -22,4 +22,5 @@
 .messageAndClear button {
     padding: 0.4em;
     border-radius: 10px;
+    color: var(--them-color);
 }

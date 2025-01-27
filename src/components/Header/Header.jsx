@@ -13,16 +13,31 @@ const getCurrentGreeting = () => {
         : 'Good Night';
 };
 
-const Header = ({ setDrawerPage, drawerPage }) => {
+const Header = ({ setDrawerPage, setDisplay, display, allTodos }) => {
     const [message] = useState(getCurrentGreeting);
+    const [inpValue, setInpvalue] = useState('');
 
+    // open filter page handler
     const openFilterPage = () => {
         setDrawerPage({ content: <FilerPage />, show: true });
     };
 
-    const openSetting = () => {
+    // open them page handler
+    const openThemPage = () => {
         setDrawerPage({ content: <SelectThem />, show: true });
         SelectThem;
+    };
+
+    // search handler
+    const searchHandler = (event) => {
+        const value = event.target.value;
+        setInpvalue(value);
+
+        let result = value
+            ? allTodos.filter((i) => i.task.includes(value))
+            : allTodos;
+
+        setDisplay(result);
     };
 
     return (
@@ -46,7 +61,7 @@ const Header = ({ setDrawerPage, drawerPage }) => {
 
                     <button
                         aria-label="Filter"
-                        onClick={openSetting}
+                        onClick={openThemPage}
                         className={`drawer-toggle ${styles.filterBtn}`}
                     >
                         <img
@@ -63,6 +78,8 @@ const Header = ({ setDrawerPage, drawerPage }) => {
                 type="text"
                 className={styles.searchInput}
                 placeholder="Search..."
+                value={inpValue}
+                onChange={searchHandler}
             />
         </header>
     );
